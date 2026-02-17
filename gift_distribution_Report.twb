@@ -1,0 +1,1413 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.25.1210.1815                               -->
+<workbook original-version='18.1' source-build='2025.3.1 (20253.25.1210.1815)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='coupon_users' inline='true' name='federated.0thfeoi1m9u5bz117pg6a00vemce' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='coupon_users' name='textscan.1kf1v1q1go2o1612bavae1252orm'>
+            <connection class='textscan' directory='C:/Users/Abhay Dubey/Downloads/Data Analyst prep/DS/coupon_card' filename='coupon_users.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='coupon_1_to_1000_final' name='textscan.1nmixf203cf82012v1dna0jy9ejk'>
+            <connection class='textscan' directory='C:/Users/Abhay Dubey/Desktop' filename='coupon_1_to_1000_final.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1kf1v1q1go2o1612bavae1252orm' name='coupon_users.csv' table='[coupon_users#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='integer' name='user_id' ordinal='0' />
+            <column datatype='string' name='username' ordinal='1' />
+            <column datatype='integer' name='phone_number' ordinal='2' />
+            <column datatype='integer' name='coupon_cards' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[coupon_users.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_id]</local-name>
+            <parent-name>[coupon_users.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>username</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[username]</local-name>
+            <parent-name>[coupon_users.csv]</parent-name>
+            <remote-alias>username</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>phone_number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[phone_number]</local-name>
+            <parent-name>[coupon_users.csv]</parent-name>
+            <remote-alias>phone_number</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>coupon_cards</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[coupon_cards]</local-name>
+            <parent-name>[coupon_users.csv]</parent-name>
+            <remote-alias>coupon_cards</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='@Level' datatype='integer' name='[Calculation_1884867728494592]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF (([coupon_cards] - 1) % 40) + 1 &lt;= 5 THEN 0&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 11 THEN 1&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 17 THEN 2&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 23 THEN 3&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 29 THEN 4&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 39 THEN 5&#13;&#10;ELSE 6&#13;&#10;END' />
+      </column>
+      <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+      </column>
+      <column caption='@Cycle_Display' datatype='string' name='[Calculation_1884867729047554]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Cycle &quot; + STR([Calculation_1884867728740353])' />
+      </column>
+      <column caption='@Level_display' datatype='string' name='[Calculation_1884867729145859]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Level &quot; + STR([Calculation_1884867728494592])' />
+      </column>
+      <column caption='@Cycle_Position' datatype='integer' name='[Calculation_1884867733311492]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [coupon_cards] &lt; 41 THEN&#13;&#10;    NULL&#13;&#10;ELSE&#13;&#10;    ([coupon_cards] - 41) - (INT(([coupon_cards] - 41) / 45) * 45)&#13;&#10;END' />
+      </column>
+      <column caption='@Cycle &amp; Level' datatype='string' name='[Calculation_1884868147560453]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;    &quot;Level&quot; + STR([Calculation_1884867728494592])&#13;&#10;ELSE&#13;&#10;    &quot;Cycle&quot; + STR([Calculation_1884867728740353]) + &quot; - Level&quot; + STR([Calculation_1884867728494592])&#13;&#10;END' />
+      </column>
+      <column caption='@Gift_Level' datatype='string' name='[Calculation_1884868354555910]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        &quot;No Gift&quot;&#13;&#10;    ELSE&#13;&#10;        &quot;Level &quot; + STR([Calculation_1884867728494592]) + &quot; Gift&quot;&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        STR([Calculation_1884867728740353] - 1) + &quot; Level 6 Gift&quot;&#13;&#10;&#13;&#10;    ELSEIF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        STR([Calculation_1884867728740353]) + &quot; Level 6 Gift&quot;&#13;&#10;&#13;&#10;    ELSE&#13;&#10;        STR([Calculation_1884867728740353] - 1) + &quot; Level 6 Gift + Level &quot; &#13;&#10;        + STR([Calculation_1884867728494592]) + &quot; Gift&quot;&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column caption='@Total_Gifts' datatype='integer' name='[Calculation_1884868356091911]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        0&#13;&#10;    ELSE&#13;&#10;        1&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;&#13;&#10;    ELSEIF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;&#13;&#10;    ELSE&#13;&#10;        ([Calculation_1884867728740353] - 1) + 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column caption='@Level 1 Gifts' datatype='integer' name='[Calculation_1884868373610504]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 1 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+      </column>
+      <column caption='@Level 2 Gifts' datatype='integer' name='[Calculation_1884868374917129]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 2 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+      </column>
+      <column caption='@Level 3 Gifts' datatype='integer' name='[Calculation_1884868375121930]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 3 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+      </column>
+      <column caption='@Level 4 Gifts' datatype='integer' name='[Calculation_1884868375334923]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 4 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+      </column>
+      <column caption='@Level 5 Gifts' datatype='integer' name='[Calculation_1884868375523340]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 5 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+      </column>
+      <column caption='@Level 6 Gifts' datatype='integer' name='[Calculation_1884868375732237]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        1&#13;&#10;    ELSE&#13;&#10;        0&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;    ELSE&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column caption='Total Users' datatype='integer' name='[Calculation_1884868396474382]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([user_id])' />
+      </column>
+      <column caption='Avg Cycle per User' datatype='real' name='[Calculation_1884868396978191]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([Calculation_1884867728740353])' />
+      </column>
+      <column caption='Avg Level per User' datatype='real' name='[Calculation_1884868397441040]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([Calculation_1884867728494592])' />
+      </column>
+      <column caption='Total Gifts Distributed' datatype='integer' name='[Calculation_1884868397834257]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1884868356091911])' />
+      </column>
+      <column caption='Level 6 Gifts (Premium)' datatype='integer' name='[Calculation_1884868398563346]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1884868375732237])' />
+      </column>
+      <column caption='Avg Gifts per User' datatype='real' name='[Calculation_1884868399562771]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1884868356091911]) / COUNTD([user_id])' />
+      </column>
+      <column caption='Max Cycle Reached' datatype='integer' name='[Calculation_1884868399890452]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='MAX([Calculation_1884867728740353])' />
+      </column>
+      <column caption='coupon_users.csv' datatype='table' name='[__tableau_internal_object_id__].[coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4]' role='measure' type='quantitative' />
+      <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+      <column caption='Phone Number' datatype='integer' name='[phone_number]' role='dimension' type='ordinal' />
+      <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+      <column caption='Username' datatype='string' name='[username]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_1884867729145859]' derivation='None' name='[none:Calculation_1884867729145859:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_1884867729145859:nk]' type='palette'>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 0&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 1&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 2&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 3&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 4&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Level 5&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Level 6&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='coupon_users.csv' id='coupon_users.csv_C0452B94FA29404F956B7FFF5317CFD4'>
+            <properties context=''>
+              <relation connection='textscan.1kf1v1q1go2o1612bavae1252orm' name='coupon_users.csv' table='[coupon_users#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='integer' name='user_id' ordinal='0' />
+                  <column datatype='string' name='username' ordinal='1' />
+                  <column datatype='integer' name='phone_number' ordinal='2' />
+                  <column datatype='integer' name='coupon_cards' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Gifts by Level'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Level' datatype='integer' name='[Calculation_1884867728494592]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF (([coupon_cards] - 1) % 40) + 1 &lt;= 5 THEN 0&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 11 THEN 1&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 17 THEN 2&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 23 THEN 3&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 29 THEN 4&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 39 THEN 5&#13;&#10;ELSE 6&#13;&#10;END' />
+            </column>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='@Level_display' datatype='string' name='[Calculation_1884867729145859]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Level &quot; + STR([Calculation_1884867728494592])' />
+            </column>
+            <column caption='@Total_Gifts' datatype='integer' name='[Calculation_1884868356091911]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        0&#13;&#10;    ELSE&#13;&#10;        1&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;&#13;&#10;    ELSEIF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;&#13;&#10;    ELSE&#13;&#10;        ([Calculation_1884867728740353] - 1) + 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1884867729145859]' derivation='None' name='[none:Calculation_1884867729145859:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1884868356091911]' derivation='Sum' name='[sum:Calculation_1884868356091911:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868356091911:qk]' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867729145859:nk]' />
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868356091911:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='vertical-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868356091911:qk]</rows>
+        <cols>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867729145859:nk]</cols>
+      </table>
+      <simple-id uuid='{3C71183C-8E14-4FFA-919F-573AA7D03027}' />
+    </worksheet>
+    <worksheet name='Level 6 Gifts (Premium)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Level' datatype='integer' name='[Calculation_1884867728494592]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF (([coupon_cards] - 1) % 40) + 1 &lt;= 5 THEN 0&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 11 THEN 1&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 17 THEN 2&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 23 THEN 3&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 29 THEN 4&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 39 THEN 5&#13;&#10;ELSE 6&#13;&#10;END' />
+            </column>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='@Level 6 Gifts' datatype='integer' name='[Calculation_1884868375732237]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        1&#13;&#10;    ELSE&#13;&#10;        0&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;    ELSE&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column caption='Level 6 Gifts (Premium)' datatype='integer' name='[Calculation_1884868398563346]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1884868375732237])' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1884868398563346]' derivation='User' name='[usr:Calculation_1884868398563346:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868398563346:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#59a14f' fontsize='20'>Premium Gifts </run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontcolor='#59a14f' fontsize='20'><![CDATA[<[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868398563346:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{DB4AB21F-0585-46F1-97BB-5EA2F87857E9}' />
+    </worksheet>
+    <worksheet name='Max Cycle Reached'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='Max Cycle Reached' datatype='integer' name='[Calculation_1884868399890452]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='MAX([Calculation_1884867728740353])' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1884868399890452]' derivation='User' name='[usr:Calculation_1884868399890452:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868399890452:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#4e79a7' fontname='Benton Sans Book' fontsize='20'>Max Cycle Reached</run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontcolor='#4e79a7' fontsize='20'><![CDATA[<[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868399890452:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{322FF182-854B-40B7-9DA4-953514C5AEE8}' />
+    </worksheet>
+    <worksheet name='Total Gifts Distributed'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Level' datatype='integer' name='[Calculation_1884867728494592]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF (([coupon_cards] - 1) % 40) + 1 &lt;= 5 THEN 0&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 11 THEN 1&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 17 THEN 2&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 23 THEN 3&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 29 THEN 4&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 39 THEN 5&#13;&#10;ELSE 6&#13;&#10;END' />
+            </column>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='@Total_Gifts' datatype='integer' name='[Calculation_1884868356091911]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        0&#13;&#10;    ELSE&#13;&#10;        1&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;&#13;&#10;    ELSEIF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;&#13;&#10;    ELSE&#13;&#10;        ([Calculation_1884867728740353] - 1) + 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column caption='Total Gifts Distributed' datatype='integer' name='[Calculation_1884868397834257]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1884868356091911])' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1884868397834257]' derivation='User' name='[usr:Calculation_1884868397834257:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868397834257:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#f9a655' fontsize='20'>Total Gifts Distributed</run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontcolor='#f9a655' fontsize='20'><![CDATA[<[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868397834257:qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{B1C3446B-7AA9-4F65-A32A-6F43E70D0963}' />
+    </worksheet>
+    <worksheet name='Total Users'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='Total Users' datatype='integer' name='[Calculation_1884868396474382]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([user_id])' />
+            </column>
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1884868396474382]' derivation='User' name='[usr:Calculation_1884868396474382:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868396474382:qk]' value='n#,##0,K;-#,##0,K' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868396474382:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#606b76' fontsize='20'>Total Users</run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontcolor='#606b76' fontsize='20'><![CDATA[<[federated.0thfeoi1m9u5bz117pg6a00vemce].[usr:Calculation_1884868396474382:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{39B46F50-53AE-4114-AE39-352BDFF6257C}' />
+    </worksheet>
+    <worksheet name='User Detail Table'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Level' datatype='integer' name='[Calculation_1884867728494592]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF (([coupon_cards] - 1) % 40) + 1 &lt;= 5 THEN 0&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 11 THEN 1&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 17 THEN 2&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 23 THEN 3&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 29 THEN 4&#13;&#10;ELSEIF (([coupon_cards] - 1) % 40) + 1 &lt;= 39 THEN 5&#13;&#10;ELSE 6&#13;&#10;END' />
+            </column>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='@Cycle &amp; Level' datatype='string' name='[Calculation_1884868147560453]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;    &quot;Level&quot; + STR([Calculation_1884867728494592])&#13;&#10;ELSE&#13;&#10;    &quot;Cycle&quot; + STR([Calculation_1884867728740353]) + &quot; - Level&quot; + STR([Calculation_1884867728494592])&#13;&#10;END' />
+            </column>
+            <column caption='@Total_Gifts' datatype='integer' name='[Calculation_1884868356091911]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        0&#13;&#10;    ELSE&#13;&#10;        1&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 0 THEN&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;&#13;&#10;    ELSEIF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;&#13;&#10;    ELSE&#13;&#10;        ([Calculation_1884867728740353] - 1) + 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column caption='@Level 1 Gifts' datatype='integer' name='[Calculation_1884868373610504]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 1 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+            </column>
+            <column caption='@Level 2 Gifts' datatype='integer' name='[Calculation_1884868374917129]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 2 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+            </column>
+            <column caption='@Level 3 Gifts' datatype='integer' name='[Calculation_1884868375121930]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 3 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+            </column>
+            <column caption='@Level 4 Gifts' datatype='integer' name='[Calculation_1884868375334923]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 4 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+            </column>
+            <column caption='@Level 5 Gifts' datatype='integer' name='[Calculation_1884868375523340]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728494592] = 5 THEN&#13;&#10;    1&#13;&#10;ELSE&#13;&#10;    0&#13;&#10;END' />
+            </column>
+            <column caption='@Level 6 Gifts' datatype='integer' name='[Calculation_1884868375732237]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_1884867728740353] = 1 THEN&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        1&#13;&#10;    ELSE&#13;&#10;        0&#13;&#10;    END&#13;&#10;&#13;&#10;ELSE&#13;&#10;&#13;&#10;    IF [Calculation_1884867728494592] = 6 THEN&#13;&#10;        [Calculation_1884867728740353]&#13;&#10;    ELSE&#13;&#10;        [Calculation_1884867728740353] - 1&#13;&#10;    END&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1884868147560453]' derivation='None' name='[none:Calculation_1884868147560453:nk]' pivot='key' type='nominal' />
+            <column-instance column='[phone_number]' derivation='None' name='[none:phone_number:ok]' pivot='key' type='ordinal' />
+            <column caption='Phone Number' datatype='integer' name='[phone_number]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1884868356091911]' derivation='Sum' name='[sum:Calculation_1884868356091911:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868373610504]' derivation='Sum' name='[sum:Calculation_1884868373610504:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868374917129]' derivation='Sum' name='[sum:Calculation_1884868374917129:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868375121930]' derivation='Sum' name='[sum:Calculation_1884868375121930:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868375334923]' derivation='Sum' name='[sum:Calculation_1884868375334923:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868375523340]' derivation='Sum' name='[sum:Calculation_1884868375523340:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884868375732237]' derivation='Sum' name='[sum:Calculation_1884868375732237:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[coupon_cards]' derivation='Sum' name='[sum:coupon_cards:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868373610504:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868374917129:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868375121930:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868375334923:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868375523340:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868375732237:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:Calculation_1884868356091911:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0thfeoi1m9u5bz117pg6a00vemce].[sum:coupon_cards:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:phone_number:ok]' value='148' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows onTop='true' total='true'>([federated.0thfeoi1m9u5bz117pg6a00vemce].[none:phone_number:ok] / [federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884868147560453:nk])</rows>
+        <cols>[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{3BD498A3-BD63-4B68-BCE1-D988A6B76323}' />
+    </worksheet>
+    <worksheet name='Users by Cycle'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce'>
+            <column caption='@Cycle' datatype='integer' name='[Calculation_1884867728740353]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='CEILING([coupon_cards] / 40)' />
+            </column>
+            <column caption='Coupon Cards' datatype='integer' name='[coupon_cards]' role='measure' type='quantitative' />
+            <column-instance column='[user_id]' derivation='CountD' name='[ctd:user_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1884867728740353]' derivation='None' name='[none:Calculation_1884867728740353:ok]' pivot='key' type='ordinal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867728740353:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0thfeoi1m9u5bz117pg6a00vemce].[ctd:user_id:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.0thfeoi1m9u5bz117pg6a00vemce].[ctd:user_id:qk]' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0thfeoi1m9u5bz117pg6a00vemce].[ctd:user_id:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='vertical-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#59a14f' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0thfeoi1m9u5bz117pg6a00vemce].[ctd:user_id:qk]</rows>
+        <cols>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867728740353:ok]</cols>
+      </table>
+      <simple-id uuid='{5082F7DB-CD10-4642-9B76-ECA0471214A7}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='User Progression &amp; Rewards Overview'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#59a14f' fontsize='20'>              &lt;Sheet Name&gt;</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='coupon_users' name='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0thfeoi1m9u5bz117pg6a00vemce' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98244' id='5' param='vert' type-v2='layout-flow' w='99152' x='424' y='878'>
+            <zone h='5818' id='7' type-v2='title' w='99152' x='424' y='878'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='solid' />
+                <format attr='border-width' value='4' />
+                <format attr='margin' value='4' />
+                <format attr='background-color' value='#e6e6e6' />
+              </zone-style>
+            </zone>
+            <zone h='92426' id='6' type-v2='layout-basic' w='99152' x='424' y='6696'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='solid' />
+                <format attr='border-width' value='4' />
+                <format attr='background-color' value='#e6e6e6' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='15368' id='8' name='Total Users' show-title='false' w='20760' x='1871' y='9769'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='15368' id='9' name='Total Gifts Distributed' show-title='false' w='23778' x='24019' y='9550'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='15258' id='10' name='Level 6 Gifts (Premium)' show-title='false' w='23235' x='49306' y='9550'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='15038' id='11' name='Max Cycle Reached' show-title='false' w='24381' x='73929' y='9550'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='36114' id='14' name='Gifts by Level' show-title='false' w='96500' x='1811' y='61142'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='33260' id='15' name='User Detail Table' show-title='false' w='55522' x='1992' y='26125'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='3513' id='16' mode='checkdropdown' name='User Detail Table' param='[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]' type-v2='filter' w='25588' x='72541' y='1976'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='3' />
+          </zone-style>
+        </zone>
+        <zone h='33260' id='17' name='Users by Cycle' show-title='false' w='39831' x='58419' y='26125'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='4' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run bold='true' fontcolor='#59a14f' fontsize='20'>              &lt;Sheet Name&gt;</run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='1450' minheight='1450' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='23' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98244' id='22' param='vert' type-v2='layout-flow' w='99152' x='424' y='878'>
+                <zone h='5818' id='7' type-v2='title' w='99152' x='424' y='878'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#e6e6e6' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='115' h='15368' id='9' is-fixed='true' name='Total Gifts Distributed' show-title='false' w='23778' x='24019' y='9550'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='114' h='15258' id='10' is-fixed='true' name='Level 6 Gifts (Premium)' show-title='false' w='23235' x='49306' y='9550'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='113' h='15038' id='11' is-fixed='true' name='Max Cycle Reached' show-title='false' w='24381' x='73929' y='9550'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='115' h='15368' id='8' is-fixed='true' name='Total Users' show-title='false' w='20760' x='1871' y='9769'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='3513' id='16' mode='checkdropdown' name='User Detail Table' param='[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]' type-v2='filter' w='25588' x='72541' y='1976'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='3' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='258' h='33260' id='15' is-fixed='true' name='User Detail Table' show-title='false' w='55522' x='1992' y='26125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='258' h='33260' id='17' is-fixed='true' name='Users by Cycle' show-title='false' w='39831' x='58419' y='26125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='36114' id='14' is-fixed='true' name='Gifts by Level' show-title='false' w='96500' x='1811' y='61142'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='4' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4103EC86-FD7D-4E50-A2D8-62108E019FD7}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' show-side-pane='false' source-height='37'>
+    <window class='dashboard' maximized='true' name='User Progression &amp; Rewards Overview'>
+      <viewpoints>
+        <viewpoint name='Gifts by Level'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Level 6 Gifts (Premium)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Max Cycle Reached'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Gifts Distributed'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Users'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='User Detail Table'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Users by Cycle'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='14' />
+      <simple-id uuid='{B4611077-2D49-4A12-AE2C-813EC985F638}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Gifts by Level'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867729145859:nk]</field>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884868404146200:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{60CD7CC5-8BAD-4D90-A7B8-4FF4582F22C5}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Level 6 Gifts (Premium)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{3E991ABD-4DF0-4C2E-BFFD-012C498C67DB}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Max Cycle Reached'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{C0CB687E-5D8B-487D-A8F1-2A4C0BAA8F19}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Total Gifts Distributed'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{FB607709-73C9-4FB2-AE18-0DF774102082}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Total Users'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{B8604E57-BF67-4075-B843-7D9DC353F4B7}' />
+    </window>
+    <window class='worksheet' hidden='true' name='User Detail Table'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='checkdropdown' param='[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]' show-morefewerbutton='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[:Measure Names]</field>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884868147560453:nk]</field>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:phone_number:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{548C2DBB-A627-4038-A332-6CFDE4E22346}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Users by Cycle'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:Calculation_1884867728740353:ok]</field>
+            <field>[federated.0thfeoi1m9u5bz117pg6a00vemce].[none:user_id:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{4EF7451D-D96A-44FC-B30C-89E06FC9CD23}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='User Progression &amp; Rewards Overview' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
