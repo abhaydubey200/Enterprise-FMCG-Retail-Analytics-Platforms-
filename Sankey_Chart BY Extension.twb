@@ -1,0 +1,668 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.25.1210.1815                               -->
+<workbook original-version='18.1' source-build='2025.3.1 (20253.25.1210.1815)' source-platform='win' version='18.1' xml:base='https://prod-in-a.online.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <Extensions />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <RefreshableParameterRanges />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VizExtensions.true...VizExtensions />
+    <_.fcp.VizExtensionsDupEncodingUUID.true...VizExtensionsDupEncodingUUID />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='Sankey_ChartBYExtension' path='/t/orgxssoltuion-a7fdb68679/workbooks' revision='1.0' site='orgxssoltuion-a7fdb68679' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Sankey Stage' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;IncentiveTarget-Achieved&quot;'>
+        <calculation class='tableau' formula='&quot;IncentiveTarget-Achieved&quot;' />
+        <members>
+          <member value='&quot;IncentiveTarget-Achieved&quot;' />
+          <member value='&quot;Achieved-Incentive&quot;' />
+        </members>
+      </column>
+      <column caption='Parameter 2' datatype='real' name='[Parameter 2]' param-domain-type='list' role='measure' type='quantitative' value='1.'>
+        <calculation class='tableau' formula='1.' />
+        <members>
+          <member value='1.' />
+          <member value='49.' />
+        </members>
+      </column>
+      <column caption='Parameter 3' datatype='real' default-value-field='[Parameters].[Parameter 2]' name='[Parameter 3]' param-domain-type='range' role='measure' type='quantitative' value='1.'>
+        <calculation class='tableau' formula='1.' />
+        <range granularity='1.0' max='49.0' min='1.0' />
+      </column>
+    </datasource>
+    <datasource caption='fmcg_sample_3_years.csv_218C2F30B2CF46F28DFC6DFC050758CD1 (Multiple Connections)' inline='true' name='federated.14k57x80ch41fd11c2kik0362arq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='FMCG_SANKEY_NATIVE_2YRS' name='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g'>
+            <connection class='textscan' directory='C:/Users/Abhay Dubey/Downloads/Data Analyst prep/DS/Tableau' filename='FMCG_SANKEY_NATIVE_2YRS.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='Path_sk' name='excel-direct.1tk69qj1g9bnxc12u3fsf11r1yn7'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/Abhay Dubey/Downloads/Data Analyst prep/DS/Tableau/Path_sk.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[FMCG_SANKEY_NATIVE_2YRS.csv+].[Path]' />
+              <expression op='[SANKEY_PATH].[Path]' />
+            </expression>
+          </clause>
+          <relation all='true' name='FMCG_SANKEY_NATIVE_2YRS.csv+' type='union'>
+            <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+              <column datatype='date' name='ORDER_DATE' />
+              <column datatype='string' name='USER_NM' />
+              <column datatype='string' name='DESIGNATION' />
+              <column datatype='string' name='DESIGNATION_REPORT_TO' />
+              <column datatype='integer' name='Path' />
+              <column datatype='string' name='METRIC_TYPE' />
+              <column datatype='integer' name='VALUE' />
+              <column datatype='string' name='Table Name' />
+            </columns>
+            <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                <column datatype='string' name='USER_NM' ordinal='1' />
+                <column datatype='string' name='DESIGNATION' ordinal='2' />
+                <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                <column datatype='integer' name='Path' ordinal='4' />
+                <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                <column datatype='integer' name='VALUE' ordinal='6' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv1' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                <column datatype='string' name='USER_NM' ordinal='1' />
+                <column datatype='string' name='DESIGNATION' ordinal='2' />
+                <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                <column datatype='integer' name='Path' ordinal='4' />
+                <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                <column datatype='integer' name='VALUE' ordinal='6' />
+              </columns>
+            </relation>
+            <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv2' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                <column datatype='string' name='USER_NM' ordinal='1' />
+                <column datatype='string' name='DESIGNATION' ordinal='2' />
+                <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                <column datatype='integer' name='Path' ordinal='4' />
+                <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                <column datatype='integer' name='VALUE' ordinal='6' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.1tk69qj1g9bnxc12u3fsf11r1yn7' name='SANKEY_PATH' table='[SANKEY_PATH$]' type='table'>
+            <columns gridOrigin='A1:A4:no:A1:A4:0' header='yes' outcome='6'>
+              <column datatype='integer' name='Path' ordinal='0' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[DESIGNATION]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[DESIGNATION]' />
+          <map key='[DESIGNATION_REPORT_TO]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[DESIGNATION_REPORT_TO]' />
+          <map key='[METRIC_TYPE]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[METRIC_TYPE]' />
+          <map key='[ORDER_DATE]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[ORDER_DATE]' />
+          <map key='[Path (SANKEY!PATH)]' value='[SANKEY_PATH].[Path]' />
+          <map key='[Path]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[Path]' />
+          <map key='[Table Name]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[Table Name]' />
+          <map key='[USER_NM]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[USER_NM]' />
+          <map key='[VALUE]' value='[FMCG_SANKEY_NATIVE_2YRS.csv+].[VALUE]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SANKEY_PATH]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:A4:no:A1:A4:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ORDER_DATE</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[ORDER_DATE]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>ORDER_DATE</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>USER_NM</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[USER_NM]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>USER_NM</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DESIGNATION</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DESIGNATION]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>DESIGNATION</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DESIGNATION_REPORT_TO</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[DESIGNATION_REPORT_TO]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>DESIGNATION_REPORT_TO</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Path</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Path]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>Path</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>METRIC_TYPE</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[METRIC_TYPE]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>METRIC_TYPE</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>VALUE</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[VALUE]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>VALUE</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Table Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Table Name]</local-name>
+            <parent-name>[FMCG_SANKEY_NATIVE_2YRS.csv+]</parent-name>
+            <remote-alias>Table Name</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Path</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Path (SANKEY!PATH)]</local-name>
+            <parent-name>[SANKEY_PATH]</parent-name>
+            <remote-alias>Path</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='None' caption='@Padded' datatype='integer' name='[@Topad (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[Calculation_1137473263808535]' peg='0' size='1' />
+      </column>
+      <column caption='TARGET_AMOUNT' datatype='integer' name='[Calculation_1137472992989188]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CASE [DESIGNATION]&#13;&#10;WHEN &quot;ASM&quot; THEN 1500000&#13;&#10;WHEN &quot;RSM&quot; THEN 800000&#13;&#10;WHEN &quot;SO&quot; THEN 600000&#13;&#10;ELSE 500000&#13;&#10;END' />
+      </column>
+      <column caption='Sankey Source' datatype='string' name='[Calculation_1137472996941833]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 1] = &quot;Target → Achieved&quot; THEN &quot;Target&quot;&#13;&#10;ELSE &quot;Achieved&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Sankey Target' datatype='string' name='[Calculation_1137472997163018]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 1] = &quot;Target → Achieved&quot; THEN &quot;Achieved&quot;&#13;&#10;ELSE &quot;Incentive Payout&quot;&#13;&#10;END' />
+      </column>
+      <column caption='SANKEY STEP' datatype='string' name='[Calculation_1137473187000335]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [Path]&#13;&#10;WHEN 1 THEN &quot;Target&quot;&#13;&#10;WHEN 2 THEN &quot;Achieved&quot;&#13;&#10;WHEN 3 THEN &quot;Incentive&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Sankey Node' datatype='string' name='[Calculation_1137473187164176]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [Path]&#13;&#10;WHEN 1 THEN [DESIGNATION_REPORT_TO]&#13;&#10;WHEN 2 THEN [USER_NM]&#13;&#10;WHEN 3 THEN&#13;&#10;    IF [VALUE] &gt; 0 THEN &quot;Incentive Paid&quot;&#13;&#10;    ELSE &quot;No Incentive&quot;&#13;&#10;END&#13;&#10;END' />
+      </column>
+      <column caption='Flow Value ' datatype='integer' name='[Calculation_1137473187262481]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([VALUE])' />
+      </column>
+      <column caption='@t' datatype='real' name='[Calculation_1137473260916754]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(INDEX()-25)/4'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='@sigmoid' datatype='real' name='[Calculation_1137473261170707]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='1/(1+EXP(1)^-[Calculation_1137473260916754])'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='@Rank1' datatype='real' name='[Calculation_1137473261314068]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RUNNING_SUM(sum([VALUE]))/ total(sum([VALUE]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='@Rank2' datatype='real' name='[Calculation_1137473262956565]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RUNNING_SUM(sum([Calculation_1137472992989188]))/ total(sum([Calculation_1137472992989188]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='@Curve' datatype='real' name='[Calculation_1137473263325206]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_1137473261314068]+(([Calculation_1137473262956565]-[Calculation_1137473261314068])*[Calculation_1137473261170707])'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='@Topad' datatype='integer' name='[Calculation_1137473263808535]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if[Table Name]=&apos;flights.csv&apos; then 1 else 49 end' />
+      </column>
+      <column caption='Designation' datatype='string' name='[DESIGNATION]' role='dimension' type='nominal' />
+      <column caption='Designation Report To' datatype='string' name='[DESIGNATION_REPORT_TO]' role='dimension' type='nominal' />
+      <column caption='Metric Type' datatype='string' name='[METRIC_TYPE]' role='dimension' type='nominal' />
+      <column caption='Order Date' datatype='date' name='[ORDER_DATE]' role='dimension' type='ordinal' />
+      <column aggregation='None' caption='Path (SANKEY!PATH) (bin)' datatype='integer' name='[Path (SANKEY!PATH) (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[Path (SANKEY!PATH)]' peg='0' size='1' />
+      </column>
+      <column datatype='integer' name='[Path (SANKEY!PATH)]' role='measure' type='quantitative' />
+      <column aggregation='None' caption='Path (bin)' datatype='integer' name='[Path (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[Path]' peg='0' size='1' />
+      </column>
+      <column datatype='integer' name='[Path]' role='measure' type='quantitative' />
+      <column caption='User Nm' datatype='string' name='[USER_NM]' role='dimension' type='nominal' />
+      <column caption='Value' datatype='integer' name='[VALUE]' role='measure' type='quantitative' />
+      <column caption='FMCG_SANKEY_NATIVE_2YRS.csv' datatype='table' name='[__tableau_internal_object_id__].[FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-aliased-fields='true' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Sankey Stage' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;IncentiveTarget-Achieved&quot;'>
+          <calculation class='tableau' formula='&quot;IncentiveTarget-Achieved&quot;' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='FMCG_SANKEY_NATIVE_2YRS.csv' id='FMCG_SANKEY_NATIVE_2YRS.csv_3AB0A3AF63D64309879929D64603DA60'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[FMCG_SANKEY_NATIVE_2YRS.csv+].[Path]' />
+                    <expression op='[SANKEY_PATH].[Path]' />
+                  </expression>
+                </clause>
+                <relation all='true' name='FMCG_SANKEY_NATIVE_2YRS.csv+' type='union'>
+                  <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                    <column datatype='date' name='ORDER_DATE' />
+                    <column datatype='string' name='USER_NM' />
+                    <column datatype='string' name='DESIGNATION' />
+                    <column datatype='string' name='DESIGNATION_REPORT_TO' />
+                    <column datatype='integer' name='Path' />
+                    <column datatype='string' name='METRIC_TYPE' />
+                    <column datatype='integer' name='VALUE' />
+                    <column datatype='string' name='Table Name' />
+                  </columns>
+                  <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+                    <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                      <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                      <column datatype='string' name='USER_NM' ordinal='1' />
+                      <column datatype='string' name='DESIGNATION' ordinal='2' />
+                      <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                      <column datatype='integer' name='Path' ordinal='4' />
+                      <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                      <column datatype='integer' name='VALUE' ordinal='6' />
+                    </columns>
+                  </relation>
+                  <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv1' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+                    <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                      <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                      <column datatype='string' name='USER_NM' ordinal='1' />
+                      <column datatype='string' name='DESIGNATION' ordinal='2' />
+                      <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                      <column datatype='integer' name='Path' ordinal='4' />
+                      <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                      <column datatype='integer' name='VALUE' ordinal='6' />
+                    </columns>
+                  </relation>
+                  <relation connection='textscan.0umzvzm1gz9r7w13uiuvt13j7z9g' name='FMCG_SANKEY_NATIVE_2YRS.csv2' table='[FMCG_SANKEY_NATIVE_2YRS#csv]' type='table'>
+                    <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                      <column datatype='date' name='ORDER_DATE' ordinal='0' />
+                      <column datatype='string' name='USER_NM' ordinal='1' />
+                      <column datatype='string' name='DESIGNATION' ordinal='2' />
+                      <column datatype='string' name='DESIGNATION_REPORT_TO' ordinal='3' />
+                      <column datatype='integer' name='Path' ordinal='4' />
+                      <column datatype='string' name='METRIC_TYPE' ordinal='5' />
+                      <column datatype='integer' name='VALUE' ordinal='6' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='excel-direct.1tk69qj1g9bnxc12u3fsf11r1yn7' name='SANKEY_PATH' table='[SANKEY_PATH$]' type='table'>
+                  <columns gridOrigin='A1:A4:no:A1:A4:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='Path' ordinal='0' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Extension'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fmcg_sample_3_years.csv_218C2F30B2CF46F28DFC6DFC050758CD1 (Multiple Connections)' name='federated.14k57x80ch41fd11c2kik0362arq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.14k57x80ch41fd11c2kik0362arq'>
+            <column caption='TARGET_AMOUNT' datatype='integer' name='[Calculation_1137472992989188]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CASE [DESIGNATION]&#13;&#10;WHEN &quot;ASM&quot; THEN 1500000&#13;&#10;WHEN &quot;RSM&quot; THEN 800000&#13;&#10;WHEN &quot;SO&quot; THEN 600000&#13;&#10;ELSE 500000&#13;&#10;END' />
+            </column>
+            <column caption='Designation' datatype='string' name='[DESIGNATION]' role='dimension' type='nominal' />
+            <column caption='Designation Report To' datatype='string' name='[DESIGNATION_REPORT_TO]' role='dimension' type='nominal' />
+            <column caption='Metric Type' datatype='string' name='[METRIC_TYPE]' role='dimension' type='nominal' />
+            <column-instance column='[DESIGNATION]' derivation='None' name='[none:DESIGNATION:nk]' pivot='key' type='nominal' />
+            <column-instance column='[DESIGNATION_REPORT_TO]' derivation='None' name='[none:DESIGNATION_REPORT_TO:nk]' pivot='key' type='nominal' />
+            <column-instance column='[METRIC_TYPE]' derivation='None' name='[none:METRIC_TYPE:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1137472992989188]' derivation='Sum' name='[sum:Calculation_1137472992989188:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <_.fcp.VizExtensions.false...mark class='Automatic' />
+            <_.fcp.VizExtensions.true...mark class='VizExtension' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <_.fcp.VizExtensions.true...add-in add-in-id='com.tableau.extension.sankey' extension-url='https://extensions.tableauusercontent.com/sandbox/sankey/sankey.html' extension-version='1.5.0' instance-id='DD6F4BAB1F7048E49C01741E6A028187'>
+              <instance-settings>
+                <setting key='color-map' value='{&quot;Designation&quot;:[[&quot;SO&quot;,&quot;#4e79a7&quot;],[&quot;TSI&quot;,&quot;#f28e2b&quot;]],&quot;Metric Type&quot;:[[&quot;Achieved&quot;,&quot;#e15759&quot;],[&quot;Incentive&quot;,&quot;#76b7b2&quot;],[&quot;Target&quot;,&quot;#59a14f&quot;]],&quot;Designation Report To&quot;:[[&quot;ASM East&quot;,&quot;#edc948&quot;],[&quot;ASM North&quot;,&quot;#b07aa1&quot;],[&quot;ASM South&quot;,&quot;#ff9da7&quot;],[&quot;ASM West&quot;,&quot;#9c755f&quot;]]}' />
+              </instance-settings>
+              <type-settings>
+                <worksheet />
+              </type-settings>
+            </_.fcp.VizExtensions.true...add-in>
+            <encodings>
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{C721B0C9-7114-499B-9689-1F833204FC20}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{C721B0C9-7114-499B-9689-1F833204FC20}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION:nk]' custom-type-name='level' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{7FFAD800-75E2-4D5D-A564-6C09153823B7}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:METRIC_TYPE:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{7FFAD800-75E2-4D5D-A564-6C09153823B7}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:METRIC_TYPE:nk]' custom-type-name='level' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{D5E59DF1-A5A5-483F-AF49-F6C261C11D66}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION_REPORT_TO:nk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{D5E59DF1-A5A5-483F-AF49-F6C261C11D66}' column='[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION_REPORT_TO:nk]' custom-type-name='level' />
+              <lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{70FCBEBC-B1EE-441E-BE9C-89F6EECE604A}' column='[federated.14k57x80ch41fd11c2kik0362arq].[sum:Calculation_1137472992989188:qk]' />
+              <_.fcp.VizExtensions.false...lod _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{3232D03C-336C-4F79-B6E8-BAA204BF9A01}' column='[federated.14k57x80ch41fd11c2kik0362arq].[sum:Calculation_1137472992989188:qk]' />
+              <_.fcp.VizExtensions.true...custom _.fcp.VizExtensionsDupEncodingUUID.true...encoding-id='{3232D03C-336C-4F79-B6E8-BAA204BF9A01}' column='[federated.14k57x80ch41fd11c2kik0362arq].[sum:Calculation_1137472992989188:qk]' custom-type-name='edge' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='2.3314917087554932' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{0ED9009D-5755-4314-B792-3822A666B705}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Extension'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[attr:USER_NM:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:AREA:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:AREA_ID:ok]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:Calculation_1137472996941833:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:Calculation_1137472997163018:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:Calculation_1137473187164176:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:DESIGNATION_REPORT_TO:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:METRIC_TYPE:nk]</field>
+            <field>[federated.14k57x80ch41fd11c2kik0362arq].[none:USER_NM:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8720AD53-4D29-4A4B-8DBB-2C9F8CF9384C}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Extension' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAAFWklEQVR4nO3XW2scZQDG8Wd2ZpNsdxvTNmlq0qbWpiUFDzTa1qpIEBVKwS+goB/Cawno
+      B5DqhQoeUEQQwUNLS/WixRtBRMSGNIcm2SZpDttus7vdTXazh/Gi0DtBW6GU5/+7nPfAOwN/
+      eCeI4zgWYCpxvw8A3E8EAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsE
+      AGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsE
+      AGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsE
+      AGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsE
+      AGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsE
+      AGsEAGsEAGsEAGsEAGsEAGsEAGsEAGsEgHvU0NVsVtlsVoVi+c7TUrkoSapWS6o17mH3WlXV
+      ak31+n/fpFGvK5a0Wa2qWq1L2lShWFajFd+ZE46Ojo7e/fGADZ354aw+OPW5Hh8eVnltVYpS
+      OvXJO9rVc0AT419ouXFMm/lppdKdyq/MK3+robDVUEJSvdFUFIW6MjmlMJVRIbeg/K2GEpsV
+      ZecXFF2d1IW/zuvr88t68fiQ1ksFZa+tKgpiRUGgG8WyVhbm1YiSCjY3NDe/pC3pSMvzq/rp
+      o/e0fuiwequL+vi7X/VQ+bLOjZW0PRWpVLwpKVB0vz8fHnRpvf7Gm1q8WtNg31Z9+NlXmi3U
+      lKxc1+8XftTS5oLWf/lUG2Fe7Vu2qL8t1tnJKZ3oHtDIyDNabnWoO57Tb8V+bV+aU258Qmcn
+      pzSsSCNHD+vPgYMaOXZAF8cKkqR3335LtSDSc8+f0LdnTuvkK68qX6zpeu5LZVoJHX1sQO9/
+      M6a+rpe0b6OiRhyrvXdI67nvde5GpKePdGt6ekVL46c1cOw1rkD4/0xduahG1KM4khJhQskw
+      UhzHilst7Rkc0hN9kf5YqmhrKlalVdPY+KXbC+NYQRgpWJu7M97b3acXBvep0Gqqt3eHwlZL
+      khR1dOr48BFlki21taVUa9aVDJNKhAk1g4TawoRacVPHnzqpXTu2qRkHkqShnWkV2rYqKam0
+      OKXZQpeePLRTQRzH8T+8D/CvFdZKSqeSmpieUc/De6TqTeXLTT26t1tBmNb0xGXtHdyvhZlZ
+      ZXb0KBPWlSts6pGBfqVS7Rq/dEl9+/br2tzt8W2pDnWm2lWKA3Wm2nVlakaDBwdVLt7U7HxO
+      u3f3aHsmrZ/PX9TKWqyXTz6rTNjUzPyqDg72S0GnglZJubWqBvp3ql7dUKUpdSSkjeItFTYq
+      Snd1EQAebI1aVc0gqfa28K7WEwCs8Q8AawQAawQAawQAawQAawQAawQAawQAawQAawQAawQA
+      awQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQA
+      awQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQA
+      awQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQA
+      awQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQAawQA
+      awQAawQAawQAawQAawQAawQAawQAa38DSwJSBrAlGK4AAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+  <_.fcp.VizExtensions.true...referenced-extensions>
+    <_.fcp.VizExtensions.true...referenced-extension>
+      <manifest manifest-version='0.1'>
+        <worksheet-extension extension-version='1.5.0' id='com.tableau.extension.sankey'>
+          <default-locale>en_US</default-locale>
+          <name resource-id='name' />
+          <description>Sankeys show before-and-after states and relationships between two or more categories.</description>
+          <author email='github@tableau.com' name='Tableau' organization='Tableau' website='https://www.tableau.com/support' />
+          <min-api-version>1.12</min-api-version>
+          <source-location>
+            <url>https://extensions.tableauusercontent.com/sandbox/sankey/sankey.html</url>
+          </source-location>
+          <icon />
+          <context-menu>
+            <configure-context-menu-item />
+          </context-menu>
+          <encoding id='level'>
+            <display-name resource-id='level-encoding'>Level</display-name>
+            <role-spec>
+              <role-type>discrete-dimension</role-type>
+              <role-type>discrete-measure</role-type>
+            </role-spec>
+            <fields max-count='5' />
+            <encoding-icon token='level' />
+            <tooltip resource-id='level-tooltip'>Sankey Level - Drag up to five dimensions here.</tooltip>
+          </encoding>
+          <encoding id='edge'>
+            <display-name resource-id='edge-encoding'>Link</display-name>
+            <role-spec>
+              <role-type>continuous-dimension</role-type>
+              <role-type>continuous-measure</role-type>
+            </role-spec>
+            <fields max-count='1' />
+            <encoding-icon token='edge' />
+            <tooltip resource-id='edge-tooltip'>Link - Drag a measure here.</tooltip>
+          </encoding>
+        </worksheet-extension>
+        <resources>
+          <resource id='edge-encoding'>
+            <text locale='de_DE'>Verbindung</text>
+            <text locale='en_GB'>Link</text>
+            <text locale='en_US'>Link</text>
+            <text locale='es_ES'>Enlace</text>
+            <text locale='fr_CA'>Lien</text>
+            <text locale='fr_FR'>Lien</text>
+            <text locale='it_IT'>Flusso</text>
+            <text locale='ja_JP'>リンク</text>
+            <text locale='ko_KR'>링크</text>
+            <text locale='nl_NL'>Link</text>
+            <text locale='pt_BR'>Conexão</text>
+            <text locale='sv_SE'>länkar</text>
+            <text locale='th_TH'>ลิงก์</text>
+            <text locale='zh_CN'>链接</text>
+            <text locale='zh_TW'>鏈接</text>
+          </resource>
+          <resource id='edge-tooltip'>
+            <text locale='de_DE'>Verbindung - Kennzahl hierher ziehen.</text>
+            <text locale='en_GB'>Link - Drag a measure here.</text>
+            <text locale='en_US'>Link - Drag a measure here.</text>
+            <text locale='es_ES'>Enlace - Arrastre la medida aquí.</text>
+            <text locale='fr_CA'>Lien - Faites glisser la mesure ici.</text>
+            <text locale='fr_FR'>Lien - Faites glisser la mesure ici.</text>
+            <text locale='it_IT'>Flusso - Trascina la misura qui Link.</text>
+            <text locale='ja_JP'>リンク - メジャーを使用.</text>
+            <text locale='ko_KR'>링크 - 측정값 사용.</text>
+            <text locale='nl_NL'>Link - Sleep meetwaarde hierheen.</text>
+            <text locale='pt_BR'>Conexão - Arraste a medida aqui.</text>
+            <text locale='sv_SE'>Länk - Dra mått hit.</text>
+            <text locale='th_TH'>ลิงก์ - ใช้ค่าการวัด.</text>
+            <text locale='zh_CN'>链接 - 使用度量.</text>
+            <text locale='zh_TW'>鏈接 - 使用測量值.</text>
+          </resource>
+          <resource id='level-encoding'>
+            <text locale='de_DE'>Ebene</text>
+            <text locale='en_GB'>Level</text>
+            <text locale='en_US'>Level</text>
+            <text locale='es_ES'>Nivel</text>
+            <text locale='fr_CA'>Niveau</text>
+            <text locale='fr_FR'>Niveau</text>
+            <text locale='it_IT'>Livello</text>
+            <text locale='ja_JP'>レベル</text>
+            <text locale='ko_KR'>단계</text>
+            <text locale='nl_NL'>Niveau</text>
+            <text locale='pt_BR'>Nível</text>
+            <text locale='sv_SE'>Nivå</text>
+            <text locale='th_TH'>ระดับ</text>
+            <text locale='zh_CN'>级别</text>
+            <text locale='zh_TW'>級別</text>
+          </resource>
+          <resource id='level-tooltip'>
+            <text locale='de_DE'>Sankey-Ebene - Fügen Sie bis zu fünf Dimensionen hinzu.</text>
+            <text locale='en_GB'>Sankey Level - Drag up to five dimensions here.</text>
+            <text locale='en_US'>Sankey Level - Drag up to five dimensions here.</text>
+            <text locale='es_ES'>Nivel Sankey - Agregue hasta cinco dimensiones.</text>
+            <text locale='fr_CA'>Niveau Sankey - Ajoutez jusqu&apos;à cinq dimensions.</text>
+            <text locale='fr_FR'>Niveau Sankey - Ajoutez jusqu&apos;à cinq dimensions.</text>
+            <text locale='it_IT'>Livello Sankey - Aggiungi fino a cinque dimensioni.</text>
+            <text locale='ja_JP'>サンキーレベル - 最大5つのディメンションを追加.</text>
+            <text locale='ko_KR'>Sankey 레벨 - 최대 5개의 디멘션 추가.</text>
+            <text locale='nl_NL'>Sankey-niveau - Voeg maximaal vijf dimensies toe.</text>
+            <text locale='pt_BR'>Nível Sankey - Adicione até cinco dimensões.</text>
+            <text locale='sv_SE'>Sankey-nivå - Lägg till upp till fem dimensioner.</text>
+            <text locale='th_TH'>ระดับ Sankey - เพิ่มมิติสูงสุดห้ามิติ.</text>
+            <text locale='zh_CN'>桑基图級別 - 添加最多五个维度.</text>
+            <text locale='zh_TW'>桑基圖級別 - 新增最多五個維度.</text>
+          </resource>
+          <resource id='name'>
+            <text locale='en_US'>Sankey</text>
+            <text locale='ja_JP'>サンキー</text>
+            <text locale='zh_CN'>桑基图</text>
+          </resource>
+        </resources>
+      </manifest>
+      <referenced-views>
+        <referenced-view instances='1' viewId='Extension' />
+      </referenced-views>
+    </_.fcp.VizExtensions.true...referenced-extension>
+  </_.fcp.VizExtensions.true...referenced-extensions>
+</workbook>
